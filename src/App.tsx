@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Tab from "./components/Tab";
 import InfoField from "./components/InfoField";
 import Plan from "./components/Plan";
+import { AddOns } from "./pages";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
         <div className="px-40 py-10 w-[100%] ">
           <Routes>
             <Route path="/" element={<InfoField />} />
-            <Route path="plan" element={<Plan />} />
+            <Route path="/plan" element={<Plan />} />
+            <Route path="/addOns" element={<AddOns />} />
           </Routes>
         </div>
       </div>

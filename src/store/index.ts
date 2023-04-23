@@ -4,6 +4,8 @@ const state = proxy({
     name: '',
     email: '',
     number: '',
+    frequency: 'Monthly',
+    selectedPlan: ''
   });
   
   export default state;

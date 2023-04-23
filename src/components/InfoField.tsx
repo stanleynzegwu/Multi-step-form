@@ -33,7 +33,6 @@ const InfoField = () => {
     });
   };
 
-  console.log(emptyFields);
   return (
     <div className="h-[100%] aside flex flex-col justify-between text-black w-[70%] ">
       <div>

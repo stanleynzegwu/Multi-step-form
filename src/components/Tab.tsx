@@ -21,6 +21,8 @@ const Tab = () => {
                   ? "bg-[#BDE2FB] text-black border-none"
                   : pathname === "/plan" && index === 1
                   ? "bg-[#BDE2FB] text-black border-none"
+                  : pathname === "/addOns" && index === 2
+                  ? "bg-[#BDE2FB] text-black border-none"
                   : ""
               }`}
             >
