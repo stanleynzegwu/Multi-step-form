@@ -23,6 +23,8 @@ const Tab = () => {
                   ? "bg-[#BDE2FB] text-black border-none"
                   : pathname === "/addOns" && index === 2
                   ? "bg-[#BDE2FB] text-black border-none"
+                  : pathname === "/summary" && index === 3
+                  ? "bg-[#BDE2FB] text-black border-none"
                   : ""
               }`}
             >

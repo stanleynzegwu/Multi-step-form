@@ -15,9 +15,9 @@ const monthly = [
   { id: "monthlyPro", icon: iconPro, amount: "$15/mo", name: "Pro" },
 ];
 const yearly = [
-  { id: "yearlyArchade", icon: iconArcade, amount: "$150/yr", name: "Archade " },
-  { id: "yearlyAdvanced", icon: iconAdvanced, amount: "$300/yr", name: "Advanced" },
-  { id: "yearlyPro", icon: iconPro, amount: "$500/yr", name: "Pro" },
+  { id: "yearlyArchade", icon: iconArcade, amount: "$90/yr", name: "Archade " },
+  { id: "yearlyAdvanced", icon: iconAdvanced, amount: "$120/yr", name: "Advanced" },
+  { id: "yearlyPro", icon: iconPro, amount: "$150/yr", name: "Pro" },
 ];
 
 const Plan = () => {
@@ -45,14 +45,17 @@ const Plan = () => {
             <div
               key={index}
               className={`border border-[#483EEC] p-5 w-[30%] h-[12rem] rounded-md flex flex-col justify-between ${
-                snap.selectedPlan === id && "bg-[#F8F9FE] border-[#9C9CA4]"
+                snap.selectedPlan === `${id}(${amount})` && "bg-[#F8F9FE] border-[#9C9CA4]"
               }`}
-              onClick={() => (state.selectedPlan = id)}
+              onClick={() => (state.selectedPlan = `${id}(${amount})`)}
             >
               <img className="w-9 h-9" src={icon} alt="icon" />
               <div className="flex flex-col gap-2">
-                <span className="font-semibold">{name}</span>
+                <span className="font-semibold text-[#0B274C]">{name}</span>
                 <span className="text-[#9D9EA2]">{amount}</span>
+                {id.includes("yearly") && (
+                  <span className="font-medium text-[#0B274C]">2 months free</span>
+                )}
               </div>
             </div>
           ))}
