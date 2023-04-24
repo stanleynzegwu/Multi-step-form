@@ -4,9 +4,12 @@ import { useSnapshot } from "valtio";
 
 import state from "../store";
 import Button from "../components/Button";
-import { useHandleGoBack } from "../Hooks/CustomHooks";
+import { useHandleGoBack, useHandleNavigate } from "../Hooks/CustomHooks";
 
 const AddOns = () => {
+  const handleNavigateHome = useHandleNavigate();
+  handleNavigateHome(state);
+
   const Navigate = useNavigate();
   const snap = useSnapshot(state);
   const handleGoBack = useHandleGoBack();
@@ -37,7 +40,7 @@ const AddOns = () => {
     state.customizableProfile = customizableProfile;
     Navigate("/summary");
   };
-  console.log(isCheckedArray);
+  console.log(state);
   function checkPlan(num: number): string {
     return snap.selectedPlan.includes("monthly") ? `+$${num}/mo` : `+$${num}0/yr`;
   }

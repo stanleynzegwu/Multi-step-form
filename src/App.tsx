@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import Tab from "./components/Tab";
 import { AddOns, PersonalInfo, Plan, Summary } from "./pages";
+import state from "./store";
+console.log(state);
 
 function App() {
   return (
