@@ -112,7 +112,7 @@ const PersonalInfo = () => {
         </form>
       </div>
       <div className="flex justify-end">
-        <Button text="Next Step" bgColor="#042A5B" textColor="white" action={handleNext} />
+        <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
       </div>
     </div>
   );

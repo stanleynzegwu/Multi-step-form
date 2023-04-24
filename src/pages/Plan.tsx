@@ -45,9 +45,9 @@ const Plan = () => {
             <div
               key={index}
               className={`border border-[#483EEC] p-5 w-[30%] h-[12rem] rounded-md flex flex-col justify-between ${
-                snap.selectedPlan === `${id}(${amount})` && "bg-[#F8F9FE] border-[#9C9CA4]"
+                snap.selectedPlan === id && "bg-[#F8F9FE] border-[#9C9CA4]"
               }`}
-              onClick={() => (state.selectedPlan = `${id}(${amount})`)}
+              onClick={() => (state.selectedPlan = id)}
             >
               <img className="w-9 h-9" src={icon} alt="icon" />
               <div className="flex flex-col gap-2">
@@ -78,7 +78,7 @@ const Plan = () => {
         <Button text="Go Back" bgColor="" textColor="black" action={handleGoBack} />
         <Button
           text="Next Step"
-          bgColor="#042A5B"
+          bgColor="bg-[#042A5B]"
           textColor="white"
           action={() => state.selectedPlan && Navigate("/addOns")}
         />

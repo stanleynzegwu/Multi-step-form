@@ -10,7 +10,7 @@ const Button = ({
   action?: any;
 }) => {
   return (
-    <button className={`bg-[${bgColor}] text-${textColor} px-4 py-2 rounded-md`} onClick={action}>
+    <button className={`${bgColor} text-${textColor} px-4 py-2 rounded-md`} onClick={action}>
       {text}
     </button>
   );

@@ -131,7 +131,7 @@ const AddOns = () => {
       {/* BUTTON */}
       <div className="flex justify-between">
         <Button text="Go Back" bgColor="" textColor="[#9D9EA2]" action={handleGoBack} />
-        <Button text="Next Step" bgColor="#042A5B" textColor="white" action={handleNext} />
+        <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
       </div>
     </div>
   );
