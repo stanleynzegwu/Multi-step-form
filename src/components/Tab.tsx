@@ -16,7 +16,7 @@ const Tab = () => {
         {["your info", "select plan", "add-ons", "summary"].map((val, index) => (
           <div key={index} className="flex gap-5">
             <span
-              className={`flex justify-center items-center border-2 w-8 h-8 rounded-full ${
+              className={`flex justify-center items-center sm:font-semibold border-2 w-8 h-8 rounded-full ${
                 pathname === "/" && index === 0
                   ? "bg-[#BDE2FB] text-black border-none"
                   : pathname === "/plan" && index === 1

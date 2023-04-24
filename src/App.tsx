@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Tab from "./components/Tab";
-import InfoField from "./components/InfoField";
-import Plan from "./components/Plan";
-import { AddOns } from "./pages";
+import { AddOns, PersonalInfo, Plan, Summary } from "./pages";
 
 function App() {
   return (
@@ -11,9 +9,10 @@ function App() {
         <Tab />
         <div className="px-40 py-10 w-[100%] ">
           <Routes>
-            <Route path="/" element={<InfoField />} />
+            <Route path="/" element={<PersonalInfo />} />
             <Route path="/plan" element={<Plan />} />
             <Route path="/addOns" element={<AddOns />} />
+            <Route path="/summary" element={<Summary />} />
           </Routes>
         </div>
       </div>

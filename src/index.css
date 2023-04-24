@@ -27,3 +27,22 @@
 .heading-about{
   color: #9D9EA2
 }
+
+input.checked {
+  border-color: #483EEC;
+  background-color: #483EEC;
+  position: relative;
+}
+
+input.checked::before {
+  content: "\2713";
+  font-size: 1.5em;
+  color: #fff;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+}
+
+/* input[type="checkbox"]:focus {
+  box-shadow: 0 0 20px #483EEC;
+} */

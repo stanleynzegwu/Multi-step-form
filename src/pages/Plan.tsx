@@ -6,7 +6,7 @@ import state from "../store";
 import iconArcade from "../assets/icon-arcade.svg";
 import iconAdvanced from "../assets/icon-advanced.svg";
 import iconPro from "../assets/icon-pro.svg";
-import Button from "./Button";
+import Button from "../components/Button";
 import { useHandleGoBack } from "../Hooks/CustomHooks";
 
 const monthly = [

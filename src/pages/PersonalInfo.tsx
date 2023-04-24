@@ -2,9 +2,9 @@ import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import state from "../store";
-import Button from "./Button";
+import Button from "../components/Button";
 
-const InfoField = () => {
+const PersonalInfo = () => {
   let [emptyFields, setEmptyFields] = useState<string[]>([]);
   let { name, email, number } = state;
   const [form, setForm] = useState({ name, email, number });
@@ -118,4 +118,4 @@ const InfoField = () => {
   );
 };
 
-export default InfoField;
+export default PersonalInfo;

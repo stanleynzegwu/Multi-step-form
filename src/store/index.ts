@@ -5,7 +5,10 @@ const state = proxy({
     email: '',
     number: '',
     frequency: 'Monthly',
-    selectedPlan: ''
+    selectedPlan: '',
+    onlineService: false,
+    largerStorage: false,
+    customizableProfile: false
   });
   
   export default state;
