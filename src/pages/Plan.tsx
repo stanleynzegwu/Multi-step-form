@@ -1,6 +1,6 @@
 import { MdToggleOff, MdToggleOn } from "react-icons/md";
 import { useSnapshot } from "valtio";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import state from "../store";
 import iconArcade from "../assets/icon-arcade.svg";
@@ -82,10 +82,9 @@ const Plan = () => {
       </div>
 
       {/* BUTTON */}
-
       <div className="flex justify-end w-screen left-0 md:w-[100%] absolute bottom-0 bg-[#FFFFFF] md:relative md:bg-transparent max-md:py-2">
-        <div className="max-md:w-[80%] max-md:mx-auto max-md:text-end max-md:my-1">
-          <Button text="Go Back" bgColor="" textColor="black" action={handleGoBack} />
+        <div className="max-md:w-[80%] max-md:mx-auto flex justify-between items-center max-md:my-1 md:w-[100%]">
+          <Link to="/">Go Back</Link>
           <Button
             text="Next Step"
             bgColor="bg-[#042A5B]"
