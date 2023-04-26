@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, ChangeEvent } from "react";
 import { useSnapshot } from "valtio";
 
 import state from "../store";
 import Button from "../components/Button";
-import { useHandleGoBack, useHandleNavigate } from "../Hooks/CustomHooks";
+import { useHandleNavigate } from "../Hooks/CustomHooks";
 
 const AddOns = () => {
   const handleNavigateHome = useHandleNavigate();
@@ -12,7 +12,6 @@ const AddOns = () => {
 
   const Navigate = useNavigate();
   const snap = useSnapshot(state);
-  const handleGoBack = useHandleGoBack();
   let { onlineService, largerStorage, customizableProfile } = snap;
   const [isCheckedArray, setIsCheckedArray] = useState<{
     onlineService: boolean;
@@ -46,16 +45,16 @@ const AddOns = () => {
   }
 
   return (
-    <div className="h-[100%] aside flex flex-col justify-between text-black w-[70%] ">
-      <div>
+    <div className="aside md:h-[100%] flex flex-col justify-between text-black w-[100%] ">
+      <div className="w-[80%] max-xs:w-[90%] md:w-[100%] absolute top-[40%] left-[50%] -translate-x-[50%] -translate-y-[40%] md:top-0 md:left-0 md:-translate-x-0 md:-translate-y-0 md:relative bg-[#FFFFFF] rounded-xl p-5 md:p-0">
         <div className="mb-5">
           <h1 className="header">Pick add-ons</h1>
           <p className="heading-about">Add-ons help enhance your gaming experience.</p>
         </div>
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-2 md:gap-5">
           {/* FIRST CHECKBOX */}
           <div
-            className={`w-[100%] border-[1px] border-[#342db3] p-5 rounded-md ${
+            className={`w-[100%] border-[1px] border-[#342db3] p-3 md:p-5 rounded-md ${
               isCheckedArray.onlineService && "bg-[#F8F9FE]"
             }`}
           >
@@ -80,7 +79,7 @@ const AddOns = () => {
           </div>
           {/* SECOND CHECKBOX */}
           <div
-            className={`w-[100%] border-[1px] border-[#342db3] p-5 rounded-md ${
+            className={`w-[100%] border-[1px] border-[#342db3] p-3 md:p-5 rounded-md ${
               isCheckedArray.largerStorage && "bg-[#F8F9FE]"
             }`}
           >
@@ -105,7 +104,7 @@ const AddOns = () => {
           </div>
           {/* THIRD CHECKBOX */}
           <div
-            className={`w-[100%] border-[1px] border-[#342db3] p-5 rounded-md ${
+            className={`w-[100%] border-[1px] border-[#342db3] p-3 md:p-5 rounded-md ${
               isCheckedArray.customizableProfile && "bg-[#F8F9FE]"
             }`}
           >
@@ -132,9 +131,13 @@ const AddOns = () => {
       </div>
 
       {/* BUTTON */}
-      <div className="flex justify-between">
-        <Button text="Go Back" bgColor="" textColor="[#9D9EA2]" action={handleGoBack} />
-        <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
+      <div className="flex justify-end w-screen left-0 md:w-[100%] absolute bottom-0 bg-[#FFFFFF] md:relative md:bg-transparent max-md:py-2">
+        <div className="max-md:w-[80%] max-md:mx-auto flex justify-between items-center max-md:my-1 md:w-[100%]">
+          <Link to="/plan" className="text-[#9D9EA2]">
+            Go Back
+          </Link>
+          <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
+        </div>
       </div>
     </div>
   );
