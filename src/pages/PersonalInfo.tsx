@@ -35,7 +35,7 @@ const PersonalInfo = () => {
 
   return (
     <div className="aside md:h-[100%] flex flex-col justify-between text-black w-[100%] ">
-      <div className="w-[80%] max-xs:w-[90%] md:w-[100%] absolute top-[40%] left-[50%] -translate-x-[50%] -translate-y-[40%] md:top-0 md:left-0 md:-translate-x-0 md:-translate-y-0 md:relative bg-[#FFFFFF] rounded-xl p-5 md:p-0">
+      <div className="w-[80%] max-xs:w-[90%] md:w-[100%] absolute top-[40%] left-[50%] -translate-x-[50%] -translate-y-[40%] md:top-0 md:left-0 md:-translate-x-0 md:-translate-y-0 md:relative bg-[#FFFFFF] rounded-lg p-5 md:p-0">
         <div className="mb-5">
           <h1 className="header">Personal info</h1>
           <p className="heading-about">Please provide your name, email address, and phone number</p>

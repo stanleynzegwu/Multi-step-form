@@ -7,7 +7,7 @@ import iconArcade from "../assets/icon-arcade.svg";
 import iconAdvanced from "../assets/icon-advanced.svg";
 import iconPro from "../assets/icon-pro.svg";
 import Button from "../components/Button";
-import { useHandleGoBack, useHandleNavigate } from "../Hooks/CustomHooks";
+import { useHandleNavigate } from "../Hooks/CustomHooks";
 
 const monthly = [
   { id: "monthlyArchade", icon: iconArcade, amount: "$9/mo", name: "Archade " },
@@ -26,8 +26,6 @@ const Plan = () => {
   const snap = useSnapshot(state);
   const Navigate = useNavigate();
   let selectedFrequency = state.frequency === "Monthly" ? monthly : yearly;
-
-  const handleGoBack = useHandleGoBack();
 
   const handleSetFrequency = () => {
     state.frequency === "Monthly" ? (state.frequency = "Yearly") : (state.frequency = "Monthly");
