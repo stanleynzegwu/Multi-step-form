@@ -1,19 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 import Tab from "./components/Tab";
-import { AddOns, PersonalInfo, Plan, Summary } from "./pages";
-import state from "./store";
-console.log(state);
+import { AddOns, PersonalInfo, Plan, Success, Summary } from "./pages";
 
 function App() {
   return (
-    <div className="max-w-[1500px] h-screen my-0 mx-auto min-h-screen p-5 w-[100%] flex items-center justify-center">
-      <div className="flex h-[100%] w-[100%] rounded-md">
+    <div className="h-screen max-xs:h-[680px]  max-w-[1500px] md:p-5 w-screen md:mx-auto flex items-center justify-center relative bg-[#EEF5FF] md:bg-[#FFFFFF]">
+      <div className="flex flex-col h-full md:flex-row w-screen rounded-2xl">
         <Tab />
-        <div className="px-40 py-10 w-[100%] ">
+
+        <div className="sm:p-10 md:px-20 lg:px-40 w-[100%] md:w-[80%] bg-[#EEF5FF] md:bg-[#FFFFFF]">
           <Routes>
             <Route path="/" element={<PersonalInfo />} />
             <Route path="/plan" element={<Plan />} />
             <Route path="/addOns" element={<AddOns />} />
+            <Route path="/success" element={<Success />} />
             <Route path="/summary" element={<Summary />} />
           </Routes>
         </div>

@@ -65,3 +65,14 @@ export const chosenPlanName = () => {
     const isMonthly = state.selectedPlan.includes('monthly')
     return isMonthly ? `${state.selectedPlan.split('monthly')[1]} (Monthly)`  : `${state.selectedPlan.split('yearly')[1]} (Yearly)`
 }
+
+export const defaultStoreState = {
+    name: '',
+    email: '',
+    number: '',
+    frequency: 'Monthly',
+    selectedPlan: '',
+    onlineService: false,
+    largerStorage: false,
+    customizableProfile: false
+}

@@ -1,36 +1,3 @@
-// /** @type {import('tailwindcss').Config} */
-// export default {
-//   content: [],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// }
-
-// /** @type {import('tailwindcss').Config} */
-// module.exports = {
-//   content: [
-//     "./src/**/*.{js,ts,jsx,tsx}",
-//   ],
-//   theme: {
-//     extend: {},
-//     fontSize: {
-//       "2xsm": "10px",
-//       xsm: "12px",
-//       reg: "15px",
-//       lg: "18px",
-//       "2xl": "22px",
-//       "3xl": "25px",
-//       "4xl": "32px",
-//       "5xl": "40px",
-//       "6xl": "50px",
-//       "7xl": "70px",
-//     }
-//   },
-
-//   plugins: [],
-// }
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
@@ -50,9 +17,14 @@ module.exports = {
       },
       screens: {
         xs: "450px",
+        //tablet: {'min': '768px', 'max': '1023px'}
       },
       backgroundImage: {
-        "hero-pattern": "url('/src/asset/herobg.png')",
+        "image-mobile": "url('/src/assets/bg-sidebar-mobile.svg')",
+        "image-desktop": "url('/src/assets/bg-sidebar-desktop.svg')",
+      },
+      backgroundSize: {
+        'auto-100': 'auto 100%',
       },
     },
   },

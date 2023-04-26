@@ -34,29 +34,35 @@ const Plan = () => {
   };
 
   return (
-    <div className="aside h-[100%] w-[70%] flex flex-col justify-between">
-      <div className="flex flex-col gap-5">
-        <div className="mb-5">
+    <div className="aside md:h-[100%] flex flex-col justify-between text-black w-[100%] ">
+      <div
+        className={`flex flex-col absolute ${
+          state.frequency === "monthly"
+            ? "top-[40%] -translate-y-[40%]"
+            : "top-[50%] -translate-y-[50%]"
+        } left-[50%] -translate-x-[50%]  md:top-0 md:left-0 md:-translate-x-0 md:-translate-y-0 md:relative gap-1 md:gap-5 bg-[#FFFFFF] w-[90%] sm:w-[80%] md:w-[100%] p-2 md:p-0 rounded-lg`}
+      >
+        <div className="mb-2 md:mb-5">
           <h1 className="header">Select your plan</h1>
           <p className="heading-about">You have the option of monthly or yearly billing.</p>
         </div>
 
         {/* PLAN CARDS */}
-        <div className="flex flex-col gap-5 sm:flex-row sm:justify-between ">
+        <div className="flex flex-col gap-2 md:gap-5 md:flex-row sm:justify-between w-[100%]">
           {selectedFrequency.map(({ id, icon, amount, name }, index) => (
             <div
               key={index}
-              className={`border border-[#483EEC] p-5 w-[30%] h-[12rem] rounded-md flex flex-col justify-between ${
+              className={`border border-[#483EEC] p-2 md:p-5 w-[100%] md:w-[30%] md:h-[12rem] rounded-md flex md:flex-col gap-5 md:gap-1.5 max-md:justify-start justify-between ${
                 snap.selectedPlan === id && "bg-[#F8F9FE] border-[#9C9CA4]"
               }`}
               onClick={() => (state.selectedPlan = id)}
             >
-              <img className="w-9 h-9" src={icon} alt="icon" />
-              <div className="flex flex-col gap-2">
-                <span className="font-semibold text-[#0B274C]">{name}</span>
+              <img className="w-6 h-6 md:w-9 md:h-9" src={icon} alt="icon" />
+              <div className="flex flex-col gap-1 md:gap-2">
+                <span className="font-semibold text-[#0B274C] text-sm md:text-[1rem]">{name}</span>
                 <span className="text-[#9D9EA2]">{amount}</span>
                 {id.includes("yearly") && (
-                  <span className="font-medium text-[#0B274C]">2 months free</span>
+                  <span className="text-sm md:font-medium text-[#0B274C]">2 months free</span>
                 )}
               </div>
             </div>
@@ -64,7 +70,7 @@ const Plan = () => {
         </div>
 
         {/* TOGGLE PLAN */}
-        <div className="flex justify-center items-center gap-5 bg-[#F8F9FE] py-5 rounded-md">
+        <div className="flex justify-center items-center gap-5 bg-[#F8F9FE] py-2 md:py-5 rounded-md">
           <span className={`${snap.frequency === "Monthly" && "font-semibold"}`}>Monthly</span>
           {state.frequency === "Monthly" ? (
             <MdToggleOff className={`text-4xl`} onClick={handleSetFrequency} />
@@ -76,14 +82,17 @@ const Plan = () => {
       </div>
 
       {/* BUTTON */}
-      <div className="flex justify-between">
-        <Button text="Go Back" bgColor="" textColor="black" action={handleGoBack} />
-        <Button
-          text="Next Step"
-          bgColor="bg-[#042A5B]"
-          textColor="white"
-          action={() => state.selectedPlan && Navigate("/addOns")}
-        />
+
+      <div className="flex justify-end w-screen left-0 md:w-[100%] absolute bottom-0 bg-[#FFFFFF] md:relative md:bg-transparent max-md:py-2">
+        <div className="max-md:w-[80%] max-md:mx-auto max-md:text-end max-md:my-1">
+          <Button text="Go Back" bgColor="" textColor="black" action={handleGoBack} />
+          <Button
+            text="Next Step"
+            bgColor="bg-[#042A5B]"
+            textColor="white"
+            action={() => state.selectedPlan && Navigate("/addOns")}
+          />
+        </div>
       </div>
     </div>
   );

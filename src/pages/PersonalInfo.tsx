@@ -34,8 +34,8 @@ const PersonalInfo = () => {
   };
 
   return (
-    <div className="h-[100%] aside flex flex-col justify-between text-black w-[70%] ">
-      <div>
+    <div className="aside md:h-[100%] flex flex-col justify-between text-black w-[100%] ">
+      <div className="w-[80%] max-xs:w-[90%] md:w-[100%] absolute top-[40%] left-[50%] -translate-x-[50%] -translate-y-[40%] md:top-0 md:left-0 md:-translate-x-0 md:-translate-y-0 md:relative bg-[#FFFFFF] rounded-xl p-5 md:p-0">
         <div className="mb-5">
           <h1 className="header">Personal info</h1>
           <p className="heading-about">Please provide your name, email address, and phone number</p>
@@ -49,12 +49,13 @@ const PersonalInfo = () => {
               </label>
               {emptyFields.includes("name") && !form.name && (
                 <span className="w-[50%] flex justify-end text-[#FF0000] font-medium">
-                  This field is required
+                  <span className="max-sm:hidden">This field is </span>
+                  &nbsp;<span>required</span>
                 </span>
               )}
             </div>
             <input
-              className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-2 ${
+              className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-1 md:p-2 ${
                 emptyFields.includes("name") && !form.name && `border-[#FF0000]`
               }`}
               type="text"
@@ -71,13 +72,14 @@ const PersonalInfo = () => {
               </label>
               {emptyFields.includes("email") && !form.email && (
                 <span className="w-[50%] flex justify-end text-[#FF0000] font-medium">
-                  This field is required
+                  <span className="max-sm:hidden">This field is </span>
+                  &nbsp;<span>required</span>
                 </span>
               )}
             </div>
 
             <input
-              className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-2 ${
+              className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-1 md:p-2 ${
                 emptyFields.includes("email") && !form.email && `border-[#FF0000]`
               }`}
               type="email"
@@ -94,12 +96,13 @@ const PersonalInfo = () => {
               </label>
               {emptyFields.includes("number") && !form.number && (
                 <span className="w-[50%] flex justify-end text-[#FF0000] font-medium">
-                  This field is required
+                  <span className="max-sm:hidden">This field is</span>
+                  &nbsp;<span>required</span>
                 </span>
               )}
             </div>
             <input
-              className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-2 ${
+              className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-1 md:p-2 ${
                 emptyFields.includes("number") && !form.number && `border-[#FF0000]`
               }`}
               type="text"
@@ -111,8 +114,10 @@ const PersonalInfo = () => {
           </div>
         </form>
       </div>
-      <div className="flex justify-end">
-        <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
+      <div className="flex justify-end w-screen left-0 md:w-[100%] absolute bottom-0 bg-[#FFFFFF] md:relative md:bg-transparent max-md:py-2">
+        <div className="max-md:w-[80%] max-md:mx-auto max-md:text-end max-md:my-3">
+          <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
+        </div>
       </div>
     </div>
   );
