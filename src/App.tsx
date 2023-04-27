@@ -1,10 +1,14 @@
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Tab from "./components/Tab";
 import { AddOns, PersonalInfo, Plan, Success, Summary } from "./pages";
 
 function App() {
   return (
-    <div className="h-screen max-xs:h-[680px]  max-w-[1500px] md:p-5 w-screen md:mx-auto flex items-center justify-center relative bg-[#EEF5FF] md:bg-[#FFFFFF]">
+    <div className="container h-screen max-xs:h-[680px] max-w-[1500px] overflow-hidden md:p-5 w-screen md:mx-auto flex items-center justify-center relative bg-[#EEF5FF] md:bg-[#FFFFFF]">
+      <ToastContainer limit={1} />
       <div className="flex flex-col h-full md:flex-row w-screen rounded-2xl">
         <Tab />
 

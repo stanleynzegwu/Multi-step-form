@@ -39,7 +39,7 @@ const AddOns = () => {
     state.customizableProfile = customizableProfile;
     Navigate("/summary");
   };
-  console.log(state);
+
   function checkPlan(num: number): string {
     return snap.selectedPlan.includes("monthly") ? `+$${num}/mo` : `+$${num}0/yr`;
   }
@@ -54,8 +54,8 @@ const AddOns = () => {
         <div className="flex flex-col gap-2 md:gap-5">
           {/* FIRST CHECKBOX */}
           <div
-            className={`w-[100%] border-[1px] border-[#342db3] p-3 md:p-5 rounded-md ${
-              isCheckedArray.onlineService && "bg-[#F8F9FE]"
+            className={`w-[100%] border-[1px] p-3 md:p-5 hover:border-[#483EEC] rounded-md ${
+              isCheckedArray.onlineService ? "bg-[#F8F9FE] border-[#483EEC]" : "border-[#9D9EA2]"
             }`}
           >
             <label className="w-[100%] flex items-center">
@@ -79,8 +79,8 @@ const AddOns = () => {
           </div>
           {/* SECOND CHECKBOX */}
           <div
-            className={`w-[100%] border-[1px] border-[#342db3] p-3 md:p-5 rounded-md ${
-              isCheckedArray.largerStorage && "bg-[#F8F9FE]"
+            className={`w-[100%] border-[1px] hover:border-[#483EEC] p-3 md:p-5 rounded-md ${
+              isCheckedArray.largerStorage ? "bg-[#F8F9FE] border-[#483EEC]" : "border-[#9D9EA2]"
             }`}
           >
             <label className="w-[100%] flex items-center">
@@ -104,8 +104,10 @@ const AddOns = () => {
           </div>
           {/* THIRD CHECKBOX */}
           <div
-            className={`w-[100%] border-[1px] border-[#342db3] p-3 md:p-5 rounded-md ${
-              isCheckedArray.customizableProfile && "bg-[#F8F9FE]"
+            className={`w-[100%] border-[1px] hover:border-[#483EEC] p-3 md:p-5 rounded-md ${
+              isCheckedArray.customizableProfile
+                ? "bg-[#F8F9FE] border-[#483EEC]"
+                : "border-[#9D9EA2]"
             }`}
           >
             <label className="w-[100%] flex items-center">
@@ -133,7 +135,7 @@ const AddOns = () => {
       {/* BUTTON */}
       <div className="flex justify-end w-screen left-0 md:w-[100%] absolute bottom-0 bg-[#FFFFFF] md:relative md:bg-transparent max-md:py-2">
         <div className="max-md:w-[80%] max-md:mx-auto flex justify-between items-center max-md:my-1 md:w-[100%]">
-          <Link to="/plan" className="text-[#9D9EA2]">
+          <Link to="/plan" className="text-[#9D9EA2] hover:text-[#042A5B]">
             Go Back
           </Link>
           <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />

@@ -78,7 +78,9 @@ const Summary = () => {
       {/* BUTTON */}
       <div className="flex justify-end w-screen left-0 md:w-[100%] absolute bottom-0 bg-[#FFFFFF] md:relative md:bg-transparent max-md:py-2">
         <div className="max-md:w-[80%] max-md:mx-auto flex justify-between items-center max-md:my-1 md:w-[100%]">
-          <Link to="/addOns">Go Back</Link>
+          <Link to="/addOns" className="text-[#9D9EA2] hover:text-[#8e8ae6]">
+            Go Back
+          </Link>
           <Button
             text="Confirm"
             bgColor="bg-[#483EFF]"

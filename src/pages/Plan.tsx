@@ -8,6 +8,7 @@ import iconAdvanced from "../assets/icon-advanced.svg";
 import iconPro from "../assets/icon-pro.svg";
 import Button from "../components/Button";
 import { useHandleNavigate } from "../Hooks/CustomHooks";
+import { returnValidationError } from "../Utils";
 
 const monthly = [
   { id: "monthlyArchade", icon: iconArcade, amount: "$9/mo", name: "Archade " },
@@ -31,6 +32,12 @@ const Plan = () => {
     state.frequency === "Monthly" ? (state.frequency = "Yearly") : (state.frequency = "Monthly");
   };
 
+  const handleNext = () => {
+    !state.selectedPlan
+      ? returnValidationError("Please you need to select a plan 😉")
+      : Navigate("/addOns");
+  };
+
   return (
     <div className="aside md:h-[100%] flex flex-col justify-between text-black w-[100%] ">
       <div
@@ -50,8 +57,8 @@ const Plan = () => {
           {selectedFrequency.map(({ id, icon, amount, name }, index) => (
             <div
               key={index}
-              className={`border border-[#483EEC] p-2 md:p-5 w-[100%] md:w-[30%] md:h-[12rem] rounded-md flex md:flex-col gap-5 md:gap-1.5 max-md:justify-start justify-between ${
-                snap.selectedPlan === id && "bg-[#F8F9FE] border-[#9C9CA4]"
+              className={`border hover:border-[#483EEC] p-2 md:p-5 w-[100%] md:w-[30%] md:h-[12rem] rounded-md flex md:flex-col gap-5 md:gap-1.5 max-md:justify-start justify-between cursor-pointer ${
+                snap.selectedPlan === id ? "bg-[#F8F9FE] border-[#483EEC]" : "border-[#9D9EA2]"
               }`}
               onClick={() => (state.selectedPlan = id)}
             >
@@ -71,9 +78,9 @@ const Plan = () => {
         <div className="flex justify-center items-center gap-5 bg-[#F8F9FE] py-2 md:py-5 rounded-md">
           <span className={`${snap.frequency === "Monthly" && "font-semibold"}`}>Monthly</span>
           {state.frequency === "Monthly" ? (
-            <MdToggleOff className={`text-4xl`} onClick={handleSetFrequency} />
+            <MdToggleOff className={`text-4xl cursor-pointer`} onClick={handleSetFrequency} />
           ) : (
-            <MdToggleOn className={`text-4xl`} onClick={handleSetFrequency} />
+            <MdToggleOn className={`text-4xl cursor-pointer`} onClick={handleSetFrequency} />
           )}
           <span className={`${snap.frequency === "Yearly" && "font-semibold"}`}>Yearly</span>
         </div>
@@ -82,13 +89,10 @@ const Plan = () => {
       {/* BUTTON */}
       <div className="flex justify-end w-screen left-0 md:w-[100%] absolute bottom-0 bg-[#FFFFFF] md:relative md:bg-transparent max-md:py-2">
         <div className="max-md:w-[80%] max-md:mx-auto flex justify-between items-center max-md:my-1 md:w-[100%]">
-          <Link to="/">Go Back</Link>
-          <Button
-            text="Next Step"
-            bgColor="bg-[#042A5B]"
-            textColor="white"
-            action={() => state.selectedPlan && Navigate("/addOns")}
-          />
+          <Link to="/" className="text-[#9D9EA2] hover:text-[#042A5B]">
+            Go Back
+          </Link>
+          <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
         </div>
       </div>
     </div>

@@ -49,6 +49,12 @@ input.checked::before {
     font-weight: 600;
   }
 }
+
+/* @media (screen:768px) and (max-width:1023px) {
+  .container {
+    height: 700px;
+  }
+} */
 /* input[type="checkbox"]:focus {
   box-shadow: 0 0 20px #483EEC;
 } */

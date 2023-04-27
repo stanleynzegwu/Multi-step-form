@@ -1,4 +1,5 @@
 import state from "../store";
+import { toast } from "react-toastify";
   
 type Plan = "monthlyArchade" | "monthlyAdvanced" | "monthlyPro" | "yearlyArchade" | "yearlyAdvanced" | "yearlyPro"
 
@@ -75,4 +76,25 @@ export const defaultStoreState = {
     onlineService: false,
     largerStorage: false,
     customizableProfile: false
+}
+
+export const activeNumber = (pathname:string,index: number) => {
+     return pathname === "/" && index === 0
+      ? "bg-[#BDE2FB] text-black border-none"
+      : pathname === "/plan" && index === 1
+      ? "bg-[#BDE2FB] text-black border-none"
+      : pathname === "/addOns" && index === 2
+      ? "bg-[#BDE2FB] text-black border-none"
+      : pathname === "/summary" && index === 3
+      ? "bg-[#BDE2FB] text-black border-none"
+      : pathname === "/success" && index === 3
+      ? "bg-[#BDE2FB] text-black border-none"
+      : "";
+  }
+
+export const returnValidationError = (text:string) => {
+    toast.error(text, {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 1500,
+    })
 }
