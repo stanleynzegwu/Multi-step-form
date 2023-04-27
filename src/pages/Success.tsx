@@ -21,7 +21,7 @@ import thankYouIcon from "../assets/icon-thank-you.svg";
 const Success = () => {
   return (
     <div className="md:h-[100%] flex justify-center items-center text-black w-[100%] ">
-      <div className="w-[80%] max-xs:w-[90%] md:w-full flex flex-col justify-center items-center gap-5 md:gap-0 absolute top-[40%] left-[50%] -translate-x-[50%] -translate-y-[40%] md:top-0 md:left-0 md:-translate-x-0 md:-translate-y-0 md:relative bg-[#FFFFFF] rounded-lg p-6 sm:p-2 md:p-0">
+      <div className="w-[80%] max-xs:w-[90%] md:w-full flex flex-col justify-center items-center gap-5 md:gap-0 absolute top-[40%] left-[50%] -translate-x-[50%] -translate-y-[40%] md:top-0 md:left-0 md:-translate-x-0 md:-translate-y-0 md:relative bg-[#FFFFFF] rounded-lg p-6  ">
         <img className="h-50 w-50 md:mb-10" src={thankYouIcon} alt="good" />
         <span className="text-[1.5rem] font-[600] md:text-3xl md:font-bold md:mb-6 text-[#2c425d]">
           Thank you!

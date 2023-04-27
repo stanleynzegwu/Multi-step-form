@@ -1,0 +1,1 @@
+export type Plan = "monthlyArchade" | "monthlyAdvanced" | "monthlyPro" | "yearlyArchade" | "yearlyAdvanced" | "yearlyPro"

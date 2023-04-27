@@ -3,29 +3,17 @@ import { useSnapshot } from "valtio";
 import { Link, useNavigate } from "react-router-dom";
 
 import state from "../store";
-import iconArcade from "../assets/icon-arcade.svg";
-import iconAdvanced from "../assets/icon-advanced.svg";
-import iconPro from "../assets/icon-pro.svg";
 import Button from "../components/Button";
 import { useHandleNavigate } from "../Hooks/CustomHooks";
 import { returnValidationError } from "../Utils";
-
-const monthly = [
-  { id: "monthlyArchade", icon: iconArcade, amount: "$9/mo", name: "Archade " },
-  { id: "monthlyAdvanced", icon: iconAdvanced, amount: "$12/mo", name: "Advanced" },
-  { id: "monthlyPro", icon: iconPro, amount: "$15/mo", name: "Pro" },
-];
-const yearly = [
-  { id: "yearlyArchade", icon: iconArcade, amount: "$90/yr", name: "Archade " },
-  { id: "yearlyAdvanced", icon: iconAdvanced, amount: "$120/yr", name: "Advanced" },
-  { id: "yearlyPro", icon: iconPro, amount: "$150/yr", name: "Pro" },
-];
+import { plan } from "../constants";
 
 const Plan = () => {
   const handleNavigateHome = useHandleNavigate();
   handleNavigateHome(state);
   const snap = useSnapshot(state);
   const Navigate = useNavigate();
+  const [monthly, yearly] = plan;
   let selectedFrequency = state.frequency === "Monthly" ? monthly : yearly;
 
   const handleSetFrequency = () => {
@@ -92,7 +80,13 @@ const Plan = () => {
           <Link to="/" className="text-[#9D9EA2] hover:text-[#042A5B]">
             Go Back
           </Link>
-          <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
+          <Button
+            text="Next Step"
+            bgColor="bg-[#042A5B]"
+            hoverBgColor="bg-[#243f62]"
+            textColor="white"
+            action={handleNext}
+          />
         </div>
       </div>
     </div>

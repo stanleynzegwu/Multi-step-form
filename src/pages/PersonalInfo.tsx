@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import state from "../store";
 import Button from "../components/Button";
+import { isValidEmail, returnValidationError } from "../Utils";
 
 const PersonalInfo = () => {
   let [emptyFields, setEmptyFields] = useState<string[]>([]);
@@ -14,6 +15,9 @@ const PersonalInfo = () => {
     const emptyInputArray = Object.entries(form).filter(([_, value]) => !value);
     if (emptyInputArray.length) {
       setEmptyFields(emptyInputArray.map(([key, _]) => key));
+    } else if (!isValidEmail(form.email)) {
+      returnValidationError("Ouch 🙃 Email is not valid");
+      return;
     } else {
       const { name, email, number } = form;
       state.name = name;
@@ -59,7 +63,7 @@ const PersonalInfo = () => {
                 emptyFields.includes("name") && !form.name && `border-[#FF0000]`
               }`}
               type="text"
-              placeholder="Enter your name"
+              placeholder="e.g Stephen King"
               name="name"
               value={form.name}
               onChange={handleChange}
@@ -83,15 +87,16 @@ const PersonalInfo = () => {
                 emptyFields.includes("email") && !form.email && `border-[#FF0000]`
               }`}
               type="email"
-              placeholder="Enter your email address"
+              placeholder="e.g stephenking@lorem.com"
               name="email"
               value={form.email}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="flex flex-col">
             <div className="flex w-[100%]">
-              <label htmlFor="name" className="w-[50%] text-[#042A5B]">
+              <label htmlFor="name" className="w-[50%] text-[#042a5b]">
                 Phone Number
               </label>
               {emptyFields.includes("number") && !form.number && (
@@ -106,7 +111,7 @@ const PersonalInfo = () => {
                 emptyFields.includes("number") && !form.number && `border-[#FF0000]`
               }`}
               type="text"
-              placeholder="+124 9999 000000"
+              placeholder="e.g +124 9999 000000"
               name="number"
               value={form.number}
               onChange={handleChange}
@@ -116,7 +121,13 @@ const PersonalInfo = () => {
       </div>
       <div className="flex justify-end w-screen left-0 md:w-[100%] absolute bottom-0 bg-[#FFFFFF] md:relative md:bg-transparent max-md:py-2">
         <div className="max-md:w-[80%] max-md:mx-auto max-md:text-end max-md:my-3">
-          <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
+          <Button
+            text="Next Step"
+            bgColor="bg-[#042A5B]"
+            textColor="white"
+            hoverBgColor="bg-[#243f62]"
+            action={handleNext}
+          />
         </div>
       </div>
     </div>

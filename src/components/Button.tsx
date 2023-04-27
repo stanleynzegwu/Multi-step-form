@@ -8,7 +8,7 @@ const Button = ({
   text: string;
   bgColor: string;
   textColor: string;
-  hoverBgColor?: string;
+  hoverBgColor: string;
   action?: any;
 }) => {
   return (

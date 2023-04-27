@@ -138,7 +138,13 @@ const AddOns = () => {
           <Link to="/plan" className="text-[#9D9EA2] hover:text-[#042A5B]">
             Go Back
           </Link>
-          <Button text="Next Step" bgColor="bg-[#042A5B]" textColor="white" action={handleNext} />
+          <Button
+            text="Next Step"
+            bgColor="bg-[#042A5B]"
+            hoverBgColor="bg-[#243f62]"
+            textColor="white"
+            action={handleNext}
+          />
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
 import state from "../store";
 import { toast } from "react-toastify";
-  
-type Plan = "monthlyArchade" | "monthlyAdvanced" | "monthlyPro" | "yearlyArchade" | "yearlyAdvanced" | "yearlyPro"
+
+import { addOnArray } from "../constants";
+import { Plan } from "../Types";
 
 export const planAmount = (selectedPlan:Plan | string) => {
 
@@ -14,31 +15,8 @@ export const planAmount = (selectedPlan:Plan | string) => {
 export const monthlyOrYearly = (selectedPlan:Plan | string) => {
     return selectedPlan.includes('monthly') ? 'mo' : 'yr'
 }
-export const selectedAddOns = () => {
 
-    let array = [{
-            name: "Online service",
-            amount: 1
-        },{
-            name: "Larger storage",
-            amount: 2
-        },{
-            name: "Customizable profile",
-            amount: 2
-        },
-        {
-            name: "Online service",
-            amount: 10
-        },
-        {
-            name: "Larger storage",
-            amount: 20
-        },
-        {
-            name: "Customizable profile",
-            amount: 30
-        }
-    ]
+export const selectedAddOns = () => {
 
     const arr = Object.entries(state)
     const isMonthly = state.selectedPlan.includes('monthly')
@@ -49,9 +27,9 @@ export const selectedAddOns = () => {
           (key === "largerStorage" && state[key]) ||
           (key === "customizableProfile" && state[key])
       );
-      return filteredArr.map(([key,_]) => key == "onlineService" && isMonthly ? array[0] :
-      key == "largerStorage" && isMonthly ? array[1] : key == "customizableProfile" && isMonthly ? array[2] :
-      key == "onlineService" && !isMonthly ? array[3] : key == "largerStorage" && !isMonthly ? array[4] : array[5]
+      return filteredArr.map(([key,_]) => key == "onlineService" && isMonthly ? addOnArray[0] :
+      key == "largerStorage" && isMonthly ? addOnArray[1] : key == "customizableProfile" && isMonthly ? addOnArray[2] :
+      key == "onlineService" && !isMonthly ? addOnArray[3] : key == "largerStorage" && !isMonthly ? addOnArray[4] : addOnArray[5]
       )
 }
 
@@ -92,9 +70,20 @@ export const activeNumber = (pathname:string,index: number) => {
       : "";
   }
 
+export const isValidEmail = (email:string) => {
+    const atIndex = email.indexOf('@');
+    const dotIndex = email.lastIndexOf('.');
+    const lastDotIndex = email.length - dotIndex - 1;
+  
+    return (
+      atIndex > 0 && dotIndex > atIndex && lastDotIndex >= 2 && lastDotIndex <= 4
+    );
+}
+
 export const returnValidationError = (text:string) => {
     toast.error(text, {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 1500,
     })
 }
+  
