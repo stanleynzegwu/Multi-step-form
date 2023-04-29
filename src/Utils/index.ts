@@ -79,6 +79,10 @@ export const isValidEmail = (email:string) => {
       atIndex > 0 && dotIndex > atIndex && lastDotIndex >= 2 && lastDotIndex <= 4
     );
 }
+export const isValidPhoneNumber = (phoneNumber:string) => {
+    const number = Number(phoneNumber.split(' ').join(''))
+    return Number.isFinite(number)
+}
 
 export const returnValidationError = (text:string) => {
     toast.error(text, {

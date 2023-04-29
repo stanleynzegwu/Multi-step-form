@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-export type Plan =
-  | "monthlyArchade"
-  | "monthlyAdvanced"
-  | "monthlyPro"
-  | "yearlyArchade"
-  | "yearlyAdvanced"
-  | "yearlyPro";
+// export type Plan =
+//   | "monthlyArchade"
+//   | "monthlyAdvanced"
+//   | "monthlyPro"
+//   | "yearlyArchade"
+//   | "yearlyAdvanced"
+//   | "yearlyPro";
 export const useHandleGoBack = () => {
   const navigate = useNavigate();
 
