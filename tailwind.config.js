@@ -5,12 +5,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#050816",
-        secondary: "#aaa6c3",
-        tertiary: "#151030",
-        "black-100": "#100d25",
-        "black-200": "#090325",
-        "white-100": "#f3f3f3",
+        "Marine-blue": "hsl(213, 96%, 18%)",
+        "Purplish-blue": "hsl(243, 100%, 62%)",
+        "Pastel-blue": "hsl(228, 100%, 84%)",
+        "Light-blue": "hsl(206, 94%, 87%)",
+        "Strawberry-red": "hsl(354, 84%, 57%)",
+      },
+      fontFamily: {
+        'ubuntu': ['Ubuntu', 'sans-serif'],
       },
       boxShadow: {
         card: "0px 35px 120px -15px #211e35",

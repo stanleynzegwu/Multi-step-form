@@ -2,7 +2,7 @@ import { MdToggleOff, MdToggleOn } from "react-icons/md";
 import { useSnapshot } from "valtio";
 import { Link, useNavigate } from "react-router-dom";
 
-import state from "../store";
+import { state } from "../store";
 import Button from "../components/Button";
 import { useHandleNavigate } from "../Hooks/CustomHooks";
 import { returnValidationError } from "../Utils";
@@ -13,7 +13,7 @@ const Plan = () => {
   handleNavigateHome(state);
   const snap = useSnapshot(state);
   const Navigate = useNavigate();
-  const [monthly, yearly] = plan;
+  const { monthly, yearly } = plan;
   let selectedFrequency = state.frequency === "Monthly" ? monthly : yearly;
 
   const handleSetFrequency = () => {
@@ -37,7 +37,7 @@ const Plan = () => {
       >
         <div className="mb-2 md:mb-5">
           <h1 className="header">Select your plan</h1>
-          <p className="heading-about">You have the option of monthly or yearly billing.</p>
+          <p className="heading-about ">You have the option of monthly or yearly billing.</p>
         </div>
 
         {/* PLAN CARDS */}

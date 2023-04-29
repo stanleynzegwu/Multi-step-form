@@ -1,4 +1,4 @@
-import state from "../store";
+import {state} from "../store";
 import { toast } from "react-toastify";
 
 import { addOnArray } from "../constants";

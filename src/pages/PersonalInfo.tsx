@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import state from "../store";
+import { state } from "../store";
 import Button from "../components/Button";
 import { isValidEmail, returnValidationError } from "../Utils";
 
@@ -52,7 +52,7 @@ const PersonalInfo = () => {
                 Name
               </label>
               {emptyFields.includes("name") && !form.name && (
-                <span className="w-[50%] flex justify-end text-[#FF0000] font-medium">
+                <span className="w-[50%] flex justify-end text-Strawberry-red font-medium">
                   <span className="max-sm:hidden">This field is </span>
                   &nbsp;<span>required</span>
                 </span>
@@ -60,7 +60,7 @@ const PersonalInfo = () => {
             </div>
             <input
               className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-1 md:p-2 ${
-                emptyFields.includes("name") && !form.name && `border-[#FF0000]`
+                emptyFields.includes("name") && !form.name && `border-Strawberry-red`
               }`}
               type="text"
               placeholder="e.g Stephen King"
@@ -75,7 +75,7 @@ const PersonalInfo = () => {
                 Email Address
               </label>
               {emptyFields.includes("email") && !form.email && (
-                <span className="w-[50%] flex justify-end text-[#FF0000] font-medium">
+                <span className="w-[50%] flex justify-end text-Strawberry-red font-medium">
                   <span className="max-sm:hidden">This field is </span>
                   &nbsp;<span>required</span>
                 </span>
@@ -84,7 +84,7 @@ const PersonalInfo = () => {
 
             <input
               className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-1 md:p-2 ${
-                emptyFields.includes("email") && !form.email && `border-[#FF0000]`
+                emptyFields.includes("email") && !form.email && `border-Strawberry-red`
               }`}
               type="email"
               placeholder="e.g stephenking@lorem.com"
@@ -100,7 +100,7 @@ const PersonalInfo = () => {
                 Phone Number
               </label>
               {emptyFields.includes("number") && !form.number && (
-                <span className="w-[50%] flex justify-end text-[#FF0000] font-medium">
+                <span className="w-[50%] flex justify-end text-Strawberry-red font-medium">
                   <span className="max-sm:hidden">This field is</span>
                   &nbsp;<span>required</span>
                 </span>
@@ -108,7 +108,7 @@ const PersonalInfo = () => {
             </div>
             <input
               className={`border-[1px] border-[#9D9EA2] focus:outline-none focus:border-[#483EEC] focus:text-[#042A5B] rounded-md p-1 md:p-2 ${
-                emptyFields.includes("number") && !form.number && `border-[#FF0000]`
+                emptyFields.includes("number") && !form.number && `border-Strawberry-red`
               }`}
               type="text"
               placeholder="e.g +124 9999 000000"

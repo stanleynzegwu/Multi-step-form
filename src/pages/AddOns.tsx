@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, ChangeEvent } from "react";
 import { useSnapshot } from "valtio";
 
-import state from "../store";
+import { state } from "../store";
 import Button from "../components/Button";
 import { useHandleNavigate } from "../Hooks/CustomHooks";
 

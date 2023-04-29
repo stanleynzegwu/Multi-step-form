@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useSnapshot } from "valtio";
-import state from "../store";
+import { state, reset } from "../store";
 import Button from "../components/Button";
 import { useHandleNavigate } from "../Hooks/CustomHooks";
 import {
@@ -22,7 +22,8 @@ const Summary = () => {
   const isMonthylyPlan = selectedPlan.includes("monthly");
 
   const handleNext = () => {
-    state.number = "";
+    //Call valtio reset function to reset the state to initial value
+    reset();
     Navigate("/success");
   };
 
