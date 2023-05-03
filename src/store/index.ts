@@ -10,6 +10,7 @@ interface State {
   onlineService: boolean;
   largerStorage: boolean;
   customizableProfile: boolean;
+  success:boolean;
   [key: string]: any; // index signature
 }
 
@@ -21,7 +22,8 @@ const initialState: State = {
   selectedPlan: '',
   onlineService: false,
   largerStorage: false,
-  customizableProfile: false
+  customizableProfile: false,
+  success:false
 };
 
 const state = proxy(initialState);

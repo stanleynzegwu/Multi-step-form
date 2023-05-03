@@ -24,7 +24,9 @@ const Summary = () => {
   const handleNext = () => {
     //Call valtio reset function to reset the state to initial value
     reset();
-    Navigate("/success");
+    let { success } = state;
+    success = true;
+    success && Navigate("/success");
   };
 
   return (

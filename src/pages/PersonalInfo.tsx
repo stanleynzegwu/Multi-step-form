@@ -17,10 +17,8 @@ const PersonalInfo = () => {
       setEmptyFields(emptyInputArray.map(([key, _]) => key));
     } else if (!isValidEmail(form.email)) {
       returnValidationError("Ouch 🙃 Email is not valid");
-      return;
     } else if (!isValidPhoneNumber(form.number)) {
       returnValidationError("Ouch 🙃 Phone Number is not valid");
-      return;
     } else {
       const { name, email, number } = form;
       state.name = name;

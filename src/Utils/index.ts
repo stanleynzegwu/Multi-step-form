@@ -80,6 +80,8 @@ export const isValidEmail = (email:string) => {
     );
 }
 export const isValidPhoneNumber = (phoneNumber:string) => {
+    if(phoneNumber.length < 10) return false
+
     const number = Number(phoneNumber.split(' ').join(''))
     return Number.isFinite(number)
 }
@@ -89,5 +91,6 @@ export const returnValidationError = (text:string) => {
       position: toast.POSITION.TOP_CENTER,
       autoClose: 1500,
     })
+    return
 }
   
